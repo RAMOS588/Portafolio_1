@@ -1,0 +1,374 @@
+/* Variables globales */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #2ecc71;
+    --text-light: #fff;
+    --text-dark: #2c3e50;
+    --bg-dark: #1a1a2e;
+    --bg-darker: #16213e;
+    --transition: all 0.3s ease;
+}
+
+/* Fondo global oscuro y texto claro */
+html, body {
+    height: 100%;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%) !important;
+    color: var(--text-light) !important;
+}
+
+/* Elimina cualquier fondo blanco en contenedores Bootstrap */
+.container,
+.row,
+.col,
+section,
+header,
+main {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Elimina fondo blanco en componentes Bootstrap */
+.bg-white,
+.bg-light,
+.card,
+.modal-content {
+    background: linear-gradient(135deg, var(--bg-dark) 80%, var(--bg-darker) 100%) !important;
+    color: var(--text-light) !important;
+    border: none !important;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
+    color: var(--text-light);
+    min-height: 100vh;
+    padding-top: 76px; /* Compensa la navbar fija */
+}
+
+/* Navbar mejorada */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.navbar-nav .nav-link {
+    position: relative;
+    margin: 0 10px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 100%;
+}
+
+/* Secciones de contenido */
+.contenido {
+    padding: 3rem 0;
+    min-height: calc(100vh - 76px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Hero section */
+.hero {
+    background: linear-gradient(135deg, var(--bg-dark) 80%, var(--bg-darker) 100%);
+    /* Elimina la imagen si es muy clara */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    color: var(--text-light);
+    padding-top: 40px;
+}
+
+.hero h1,
+.hero h2,
+.hero h3 {
+    color: var(--text-light);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    color: var(--text-light);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+}
+
+.perfil {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 5px solid var(--accent-color);
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+}
+
+.perfil:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.5);
+}
+
+/* Botones visibles */
+.btn-success {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #fff;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.btn-success:hover {
+    background-color: #27ae60;
+    border-color: #27ae60;
+    transform: translateY(-2px);
+}
+
+.btn-outline-light {
+    color: #fff;
+    border-color: #fff;
+}
+
+.btn-outline-light:hover {
+    background-color: #fff;
+    color: var(--bg-dark);
+}
+
+/* Formulario de contacto mejorado */
+.form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-light);
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+    color: var(--text-light);
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Barras de progreso mejoradas */
+.progress {
+    height: 25px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    border-radius: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 1.5s ease-in-out;
+}
+
+/* Carrusel mejorado */
+.carousel-item {
+    height: 500px;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    height: 100%;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    padding: 1.5rem;
+    left: 10%;
+    right: 10%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .perfil {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .carousel-item {
+        height: 300px;
+    }
+    
+    .contenido {
+        padding: 2rem 0;
+    }
+}
+
+.project-card {
+    background: linear-gradient(145deg, #1a1a2e 60%, #0f3460 100%);
+    border-radius: 15px;
+    color: #fff;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
+    transition: var(--transition);
+    height: 100%;
+    cursor: pointer;
+    /* Opcional: textura sutil */
+    /* background-image: url('img/noise.png'), linear-gradient(145deg, #1a1a2e 60%, #0f3460 100%); */
+    background-blend-mode: multiply;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.project-img-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.05);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(233, 69, 96, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.view-details {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.project-content {
+  padding: 20px;
+}
+
+.project-content h4 {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.project-desc {
+  color: #c9c9c9;
+  margin-bottom: 15px;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-badge {
+  background-color: #e94560;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+}
+
+/* Modal styles */
+.modal-content {
+    background: linear-gradient(135deg, #16213e 80%, #1a1a2e 100%);
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+}
+
+/* Si tienes textos con opacidad baja, aumenta la opacidad */
+.hero p {
+    color: rgba(255, 255, 255, 0.92); /* Texto blanco y visible */
+}
+
+.container {
+    background: transparent !important;
+}
+
+.card,
+.modal-content,
+.bg-white,
+.bg-light {
+    background: linear-gradient(135deg, #1a1a2e 80%, #16213e 100%) !important;
+    color: #fff !important;
+    border: none !important;
+}
+
+.container,
+.row,
+.col,
+section,
+header,
+main {
+    background: transparent !important;
+    box-shadow: none !important;
+}
